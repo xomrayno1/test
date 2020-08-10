@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>book-store</display-name>
+	<welcome-file-list>
+		<welcome-file>giaodien/index.jsp</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/giaodien/404html.jsp</location>
+	</error-page>
+	<filter>
+		<filter-name>login</filter-name>
+		<filter-class>com.tampro.filter.LoginFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>category</filter-name>
+		<filter-class>com.tampro.filter.CategoryFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>category</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>login</filter-name>
+		<url-pattern>/login</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>checkLoginUser</filter-name>
+		<filter-class>com.tampro.filter.CheckLoginUserFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>checkLoginUser</filter-name>
+		<url-pattern>/user/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>checkAdmin</filter-name>
+		<filter-class>com.tampro.filter.CheckAdminFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>checkAdmin</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	</servlet-mapping>	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.png</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.map</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.eot</url-pattern>
+	</servlet-mapping>
+</web-app>
